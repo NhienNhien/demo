@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>Computer Management</title>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+		integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+</head>
+
+<body>
+
+	<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+		<!-- Brand -->
+		<a class="navbar-brand" href="#">Computer Management System</a>
+
+		<!-- Toggler/collapsibe Button -->
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+
+		<!-- Navbar links -->
+		<div class="collapse navbar-collapse" id="collapsibleNavbar">
+			<ul class="navbar-nav">
+				<li class="nav-item">
+					<a class="nav-link" th:href="@{/computers}">Danh sách máy tính</a>
+				</li>
+			</ul>
+		</div>
+	</nav>
+
+	<div class="container">
+		<div class="row">
+			<h1>Danh sách máy tính</h1>
+		</div>
+
+		<div class="row">
+			<div class="col-lg-3">
+				<a th:href="@{/computers/add}" class="btn btn-primary btn-sm mb-3">Thêm mới máy tính</a>
+			</div>
+		</div>
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th scope="col">ID</th>
+					<th scope="col">Tên máy</th>
+					<th scope="col">CPU</th>
+					<th scope="col">RAM</th>
+					<th scope="col">Ổ cứng</th>
+					<th scope="col">Màn hình</th>
+					<th scope="col">Hệ điều hành</th>
+					<th scope="col">Hãng sản xuất</th>
+					<th scope="col">Đơn giá</th>
+					<th scope="col">Số lượng</th>
+					<th scope="col">Thao tác</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="computer: ${computers}">
+					<td th:text="${computer.ID}"></td>
+					<td th:text="${computer.ten}"></td>
+					<td th:text="${computer.cpu}"></td>
+					<td th:text="${computer.ram}"></td>
+					<td th:text="${computer.ocung}"></td>
+					<td th:text="${computer.manhinh}"></td>
+					<td th:text="${computer.hedieuhanh}"></td>
+					<td th:text="${computer.hangsanxuat}"></td>
+					<td th:text="${computer.dongia}"></td>
+					<td th:text="${computer.soluong}"></td>
+					<td>
+						<a th:href = "@{/computers/edit/{id}(id=${computer.ID})}" class="btn btn-primary">Sửa</a>
+						
+						<a th:href = "@{/computers/{id}(id=${computer.ID})}" class="btn btn-danger">Xóa</a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</body>
+
+</html>
