@@ -1,2 +1,2 @@
 # demo
-#29/10: CRUD trang quan lý máy tính - admin
+#29/10: CRUD trang quản lý máy tính - admin
