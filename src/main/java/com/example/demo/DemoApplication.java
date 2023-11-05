@@ -19,7 +19,7 @@ public class DemoApplication implements CommandLineRunner{
 
 	@Autowired
 	private ComputerRepository computerRepository;
-	private UserRepository  userRepository;
+	private UserRepository userRepository;
 	@Override
 	public void run(String... args) throws Exception {
 		// TODO Auto-generated method stub
@@ -30,7 +30,7 @@ public class DemoApplication implements CommandLineRunner{
 //		computerRepository.save(computer);
 		
 //		
-//		User user = new User("1", "2", "3", "4", "5", 0, "6");
+//		User user = new User("1", "2", "3", "4", "5", "6","7", 0);
 //		userRepository.save(user);
 	}
 

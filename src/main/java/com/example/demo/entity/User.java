@@ -138,7 +138,8 @@ public class User implements Serializable{
 		this.role = role;
 	}
 
-	public User(String address, String dob, String email, String fullname, String password, Integer role, String username) {
+	public User(String username, String password, String fullname, String dob, String address, String email,
+			String phone, Integer role) {
 		super();
 		this.username = username;
 		this.password = password;
@@ -150,10 +151,7 @@ public class User implements Serializable{
 		this.role = role;
 	}
 
-	public User(String address2, String dob2, String email2, String fullname2, String password2, String phone2,
-			int role2, String username2) {
-		// TODO Auto-generated constructor stub
-	}
+	
 	
 	
 }
