@@ -1,5 +1,8 @@
 package com.example.demo.controller;
 
+import java.util.List;
+
+import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,6 +25,7 @@ public class ComputerController {
 	public String listComputers(Model model) {
 		model.addAttribute("computers", computerService.getAllComputers());
 		return "computers";
+//		return findPaginated(1, model);
 	}
 	
 	@GetMapping("/computers/add")
@@ -68,5 +72,18 @@ public class ComputerController {
 	public String deleteComputer(@PathVariable Integer id) {
 		computerService.deleteComputerById(id);
 		return "redirect:/computers";
+	}
+	
+	@GetMapping("/computers/page/pageNo/{pageSize}")
+	public String findPaginated(@PathVariable(value = "pageNo") int pageNo, Model model ) {
+		int pageSize = 10;
+		Page<Computer> page = computerService.findPaginated(pageNo, pageSize);
+		List<Computer> lisComputers = page.getContent();
+		model.addAttribute("currentPage", pageNo);
+		model.addAttribute("totalpages", page.getTotalPages());
+		model.addAttribute("totalItems", page.getTotalElements());
+		model.addAttribute("listComputers", lisComputers);
+		return "computers";
+		
 	}
 }

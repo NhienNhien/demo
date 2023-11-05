@@ -23,25 +23,25 @@ public class User implements Serializable{
 	@Column(name = "id")
 	private int ID;
 	
-	@Column(name = "username", nullable = false)
+	@Column(name = "username")
 	private String username;
 	
-	@Column(name = "password", nullable = false)
+	@Column(name = "password")
 	private String password;
 	
-	@Column(name = "fullname", nullable = false)
+	@Column(name = "fullname")
 	private String fullname;
 	
 	@Column(name = "dob")
 	private String dob;
 	
-	@Column(name = "address", nullable = false)
+	@Column(name = "address", nullable = true)
 	private String address;
 	
 	@Column (name = "email")
 	private String email;
 	
-	@Column (name = "phone", nullable = false)
+	@Column (name = "phone")
 	private String phone;
 	
 	@Column (name = "role")
@@ -136,6 +136,23 @@ public class User implements Serializable{
 		this.email = email;
 		this.phone = phone;
 		this.role = role;
+	}
+
+	public User(String address, String dob, String email, String fullname, String password, Integer role, String username) {
+		super();
+		this.username = username;
+		this.password = password;
+		this.fullname = fullname;
+		this.dob = dob;
+		this.address = address;
+		this.email = email;
+		this.phone = phone;
+		this.role = role;
+	}
+
+	public User(String address2, String dob2, String email2, String fullname2, String password2, String phone2,
+			int role2, String username2) {
+		// TODO Auto-generated constructor stub
 	}
 	
 	

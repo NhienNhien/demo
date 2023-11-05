@@ -6,7 +6,9 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import com.example.demo.entity.Computer;
+import com.example.demo.entity.User;
 import com.example.demo.repository.ComputerRepository;
+import com.example.demo.repository.UserRepository;
 
 @SpringBootApplication
 public class DemoApplication implements CommandLineRunner{
@@ -17,12 +19,19 @@ public class DemoApplication implements CommandLineRunner{
 
 	@Autowired
 	private ComputerRepository computerRepository;
+	private UserRepository  userRepository;
 	@Override
 	public void run(String... args) throws Exception {
 		// TODO Auto-generated method stub
 //		Computer computer = new Computer("test", "test", "test", "test", "test", "test", "test", "test", "test");
 //		computerRepository.save(computer);
 		
+//		Computer computer = new Computer("test", "test", "test", "test", "test", "test", "test", "test", "test");
+//		computerRepository.save(computer);
+		
+//		
+//		User user = new User("1", "2", "3", "4", "5", 0, "6");
+//		userRepository.save(user);
 	}
 
 }
