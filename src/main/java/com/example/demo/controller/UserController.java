@@ -59,7 +59,7 @@ public class UserController {
 			if (userService.checkAdmin(user.getUsername(), user.getPassword())) {
 				return "redirect:/computers";
 			}
-			return "redirect:/login?success";
+			return "redirect:/computers_user";
 		}
 		return "redirect:/login?passwordWrong";
 	}

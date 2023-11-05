@@ -28,6 +28,13 @@ public class ComputerController {
 //		return findPaginated(1, model);
 	}
 	
+	@GetMapping("/computers_user")
+	public String listComputersUser(Model model) {
+		model.addAttribute("computers", computerService.getAllComputers());
+		return "computers";
+//		return findPaginated(1, model);
+	}
+	
 	@GetMapping("/computers/add")
 	public String createComputerForm(Model model) {
 		Computer computer = new Computer();
