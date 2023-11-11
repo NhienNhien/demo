@@ -1,12 +1,14 @@
 package com.example.demo.entity;
 
 import java.io.Serializable;
+import java.util.List;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -46,6 +48,9 @@ public class User implements Serializable{
 	
 	@Column (name = "role")
 	private Integer role;
+	
+	@OneToMany(mappedBy = "user")
+	List<Order> orders;
 
 	public int getID() {
 		return ID;
@@ -117,6 +122,44 @@ public class User implements Serializable{
 
 	public void setRole(Integer role) {
 		this.role = role;
+	}
+
+	public List<Order> getOrders() {
+		return orders;
+	}
+
+	public void setOrders(List<Order> orders) {
+		this.orders = orders;
+	}
+
+	public User(int iD, String username, String password, String fullname, String dob, String address, String email,
+			String phone, Integer role, List<Order> orders) {
+		super();
+		ID = iD;
+		this.username = username;
+		this.password = password;
+		this.fullname = fullname;
+		this.dob = dob;
+		this.address = address;
+		this.email = email;
+		this.phone = phone;
+		this.role = role;
+		this.orders = orders;
+	}
+	
+
+	public User(String username, String password, String fullname, String dob, String address, String email,
+			String phone, Integer role, List<Order> orders) {
+		super();
+		this.username = username;
+		this.password = password;
+		this.fullname = fullname;
+		this.dob = dob;
+		this.address = address;
+		this.email = email;
+		this.phone = phone;
+		this.role = role;
+		this.orders = orders;
 	}
 
 	public User() {

@@ -31,7 +31,7 @@ public class ComputerController {
 	@GetMapping("/computers_user")
 	public String listComputersUser(Model model) {
 		model.addAttribute("computers", computerService.getAllComputers());
-		return "computers";
+		return "/computers_user";
 //		return findPaginated(1, model);
 	}
 	
@@ -59,6 +59,7 @@ public class ComputerController {
 		//get computer from DB id
 		Computer existingComputer = computerService.getComputerById(id);
 		existingComputer.setID(id);
+		existingComputer.setAnh(computer.getAnh());
 		existingComputer.setCpu(computer.getCpu());
 		existingComputer.setDongia(computer.getDongia());
 		existingComputer.setHangsanxuat(computer.getHangsanxuat());

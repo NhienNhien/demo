@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
 <head>
-	<title>Shopping...</title>
+	<title>Computer Management</title>
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
 		integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
 </head>
@@ -22,12 +22,11 @@
 		<div class="collapse navbar-collapse" id="collapsibleNavbar">
 			<ul class="navbar-nav">
 				<li class="nav-item">
-					<a class="nav-link" th:href="@{/computers}">Danh sách máy tính</a>
+					<a class="nav-link" th:href="@{/computers_user}">Danh sách máy tính</a>
 				</li>
 			</ul>
 		</div>
 	</nav>
-
 	<div class="container">
 		<div class="row">
 			<h1>Danh sách máy tính</h1>
@@ -36,6 +35,7 @@
 			<thead>
 				<tr>
 					<th scope="col">ID</th>
+					<th scope="col">Ảnh</th>
 					<th scope="col">Tên máy</th>
 					<th scope="col">CPU</th>
 					<th scope="col">RAM</th>
@@ -51,6 +51,10 @@
 			<tbody>
 				<tr th:each="computer: ${computers}">
 					<td th:text="${computer.ID}"></td>
+					<!--<td width="100" th:src="@{'/demo/uploads/' + ${computer.anh}}"></td>-->
+					<td width="100">
+						<img alt="" th:src="@{'/getimage/'+${computer.anh}}" width="80" height="70"/>
+					</td>
 					<td th:text="${computer.ten}"></td>
 					<td th:text="${computer.cpu}"></td>
 					<td th:text="${computer.ram}"></td>
@@ -62,8 +66,6 @@
 					<td th:text="${computer.soluong}"></td>
 					<td>
 						<a th:href = "@{/computers/edit/{id}(id=${computer.ID})}" class="btn btn-primary">Thêm vào giỏ hàng</a>
-						
-						<a th:href = "@{/computers/{id}(id=${computer.ID})}" class="btn btn-danger">Xóa</a>
 					</td>
 				</tr>
 			</tbody>

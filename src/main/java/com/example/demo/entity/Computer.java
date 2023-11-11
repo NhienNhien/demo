@@ -1,12 +1,14 @@
 package com.example.demo.entity;
 
 import java.io.Serializable;
+import java.util.List;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -45,12 +47,16 @@ public class Computer implements Serializable{
 	private String hangsanxuat;
 	
 	@Column(name = "dongia")
-	private String dongia;
+	private float dongia;
 	
 	@Column(name = "soluong")
-	private String soluong;
-
+	private int soluong;
 	
+	@Column(name = "anh")
+	private String anh;
+	
+	@OneToMany(mappedBy = "computer")
+	List<OrderDetail> orderDetails;
 
 	public int getID() {
 		return ID;
@@ -115,39 +121,42 @@ public class Computer implements Serializable{
 	public void setHangsanxuat(String hangsanxuat) {
 		this.hangsanxuat = hangsanxuat;
 	}
+	
 
-	public String getDongia() {
+	public float getDongia() {
 		return dongia;
 	}
 
-	public void setDongia(String dongia) {
+	public void setDongia(float dongia) {
 		this.dongia = dongia;
 	}
 
-	public String getSoluong() {
+	public int getSoluong() {
 		return soluong;
 	}
 
-	public void setSoluong(String soluong) {
+	public void setSoluong(int soluong) {
 		this.soluong = soluong;
 	}
 
-	public Computer(String ten, String cpu, String ram, String ocung, String manhinh, String hedieuhanh,
-			String hangsanxuat, String dongia, String soluong) {
-		super();
-		this.ten = ten;
-		this.cpu = cpu;
-		this.ram = ram;
-		this.ocung = ocung;
-		this.manhinh = manhinh;
-		this.hedieuhanh = hedieuhanh;
-		this.hangsanxuat = hangsanxuat;
-		this.dongia = dongia;
-		this.soluong = soluong;
+	public String getAnh() {
+		return anh;
+	}
+
+	public void setAnh(String anh) {
+		this.anh = anh;
+	}
+
+	public List<OrderDetail> getOrderDetails() {
+		return orderDetails;
+	}
+
+	public void setOrderDetails(List<OrderDetail> orderDetails) {
+		this.orderDetails = orderDetails;
 	}
 
 	public Computer(int iD, String ten, String cpu, String ram, String ocung, String manhinh, String hedieuhanh,
-			String hangsanxuat, String dongia, String soluong) {
+			String hangsanxuat, float dongia, int soluong, String anh) {
 		super();
 		ID = iD;
 		this.ten = ten;
@@ -159,12 +168,64 @@ public class Computer implements Serializable{
 		this.hangsanxuat = hangsanxuat;
 		this.dongia = dongia;
 		this.soluong = soluong;
+		this.anh = anh;
 	}
 
 	public Computer() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+
+	public Computer(String ten, String cpu, String ram, String ocung, String manhinh, String hedieuhanh,
+			String hangsanxuat, float dongia, int soluong, String anh) {
+		super();
+		this.ten = ten;
+		this.cpu = cpu;
+		this.ram = ram;
+		this.ocung = ocung;
+		this.manhinh = manhinh;
+		this.hedieuhanh = hedieuhanh;
+		this.hangsanxuat = hangsanxuat;
+		this.dongia = dongia;
+		this.soluong = soluong;
+		this.anh = anh;
+	}
+
+	public Computer(int iD, String ten, String cpu, String ram, String ocung, String manhinh, String hedieuhanh,
+			String hangsanxuat, float dongia, int soluong, String anh, List<OrderDetail> orderDetails) {
+		super();
+		ID = iD;
+		this.ten = ten;
+		this.cpu = cpu;
+		this.ram = ram;
+		this.ocung = ocung;
+		this.manhinh = manhinh;
+		this.hedieuhanh = hedieuhanh;
+		this.hangsanxuat = hangsanxuat;
+		this.dongia = dongia;
+		this.soluong = soluong;
+		this.anh = anh;
+		this.orderDetails = orderDetails;
+	}
+
+	public Computer(String ten, String cpu, String ram, String ocung, String manhinh, String hedieuhanh,
+			String hangsanxuat, float dongia, int soluong, String anh, List<OrderDetail> orderDetails) {
+		super();
+		this.ten = ten;
+		this.cpu = cpu;
+		this.ram = ram;
+		this.ocung = ocung;
+		this.manhinh = manhinh;
+		this.hedieuhanh = hedieuhanh;
+		this.hangsanxuat = hangsanxuat;
+		this.dongia = dongia;
+		this.soluong = soluong;
+		this.anh = anh;
+		this.orderDetails = orderDetails;
+	}
+
+	
+	
 	
 	
 	
