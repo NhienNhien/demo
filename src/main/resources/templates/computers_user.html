@@ -65,7 +65,8 @@
 					<td th:text="${computer.dongia}"></td>
 					<td th:text="${computer.soluong}"></td>
 					<td>
-						<a th:href = "@{/computers/edit/{id}(id=${computer.ID})}" class="btn btn-primary">Thêm vào giỏ hàng</a>
+						<!--<a th:href = "@{/computers/edit/{id}(id=${computer.ID})}" class="btn btn-primary">Thêm vào giỏ hàng</a>-->
+						<a th:href = "@{/shopping-cart/add/{id}(id=${computer.ID})}" class="btn btn-primary">Thêm vào giỏ hàng</a>
 					</td>
 				</tr>
 			</tbody>

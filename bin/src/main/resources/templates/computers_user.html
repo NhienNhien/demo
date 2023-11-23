@@ -22,7 +22,7 @@
 		<div class="collapse navbar-collapse" id="collapsibleNavbar">
 			<ul class="navbar-nav">
 				<li class="nav-item">
-					<a class="nav-link" th:href="@{/computers}">Danh sách máy tính</a>
+					<a class="nav-link" th:href="@{/computers_user}">Danh sách máy tính</a>
 				</li>
 			</ul>
 		</div>
@@ -30,12 +30,6 @@
 	<div class="container">
 		<div class="row">
 			<h1>Danh sách máy tính</h1>
-		</div>
-
-		<div class="row">
-			<div class="col-lg-3">
-				<a th:href="@{/computers/add}" class="btn btn-primary btn-sm mb-3">Thêm mới máy tính</a>
-			</div>
 		</div>
 		<table class="table table-striped">
 			<thead>
@@ -71,9 +65,7 @@
 					<td th:text="${computer.dongia}"></td>
 					<td th:text="${computer.soluong}"></td>
 					<td>
-						<a th:href = "@{/computers/edit/{id}(id=${computer.ID})}" class="btn btn-primary">Sửa</a>
-						
-						<a th:href = "@{/computers/{id}(id=${computer.ID})}" class="btn btn-danger">Xóa</a>
+						<a th:href = "@{/computers/edit/{id}(id=${computer.ID})}" class="btn btn-primary">Thêm vào giỏ hàng</a>
 					</td>
 				</tr>
 			</tbody>
