@@ -42,10 +42,13 @@
 		</div>
 	</nav>
 	<div class="container">
+		<div th:if="${param.NotEnoughtQuantity}">
+					<div class="alert alert-info">Sản phẩm hiện đang hết hàng!</div>
+				</div>
 		<div class="row">
 			<h1>Danh sách máy tính</h1>
 		</div>
-		<h2>Welcome, <span th:text="${username}"></span>!</h2>
+		<p>Welcome, <span th:text="${username}"></span>!</p>
 		<table class="table table-striped">
 			<thead>
 				<tr>

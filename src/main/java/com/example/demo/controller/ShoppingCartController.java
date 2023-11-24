@@ -70,6 +70,9 @@ public class ShoppingCartController {
 		List<CartItem> list = shoppingCartService.getCartByUsername(username);
 		int check = 1;
 		Computer computer = computerService.getComputerById(id);
+		if (computer.getSoluong()==0) {
+			return "redirect:/computers_user?NotEnoughtQuantity";
+		}
 		for(CartItem cartItem:list) {
 			if (cartItem.getComputerId().equals(id)) {
 				check = 0;
