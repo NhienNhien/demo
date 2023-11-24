@@ -23,7 +23,7 @@
 				<h1 class="text-center">Đăng nhập</h1>
 				<div class="card-body">
 					<form th:action="@{/login}" th:object="${user}" method="post">
-						
+						<span th:text="${username}"></span>
 						<div class="form-group">	
 							<label>Username</label>
 							<input type="text" name="username" th:field="*{username}" class="form-control" placeholder="Nhập username" required/>

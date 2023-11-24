@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.example.demo.entity.Computer;
 import com.example.demo.entity.User;
@@ -46,19 +48,25 @@ public class UserController {
 	@GetMapping("/login")
 	public String loginForm(Model model) {
 		User user = new User();
+		String username = user.getUsername();
+		model.addAttribute("username", username);
 		model.addAttribute("user", user);
 		return "login";
 	}
 	
 	@PostMapping("/login")
-	public String login(@ModelAttribute("user") User user) {
+	public String login(@ModelAttribute("user") User user, RedirectAttributes redirectAttributes) {
 		if (userService.checkUserByUsername(user.getUsername()) == false) {
 			return "redirect:/login?usernameWrong";
 		}
 		if (userService.checkUsernamePassword(user.getUsername(), user.getPassword())) {
 			if (userService.checkAdmin(user.getUsername(), user.getPassword())) {
+				String username = user.getUsername();
+				redirectAttributes.addAttribute("username", username);
 				return "redirect:/computers";
 			}
+			String username = user.getUsername();
+			redirectAttributes.addAttribute("username", username);
 			return "redirect:/computers_user";
 		}
 		return "redirect:/login?passwordWrong";

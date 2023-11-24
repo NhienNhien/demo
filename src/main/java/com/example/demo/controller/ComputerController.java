@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.demo.entity.Computer;
 import com.example.demo.service.ComputerService;
@@ -22,14 +23,18 @@ public class ComputerController {
 		this.computerService = computerService;
 	}
 	@GetMapping("/computers")
-	public String listComputers(Model model) {
+	public String listComputers(@RequestParam String username, Model model) {
+//		String username = (String) model.getAttribute("username");
+		model.addAttribute("username", username);
 		model.addAttribute("computers", computerService.getAllComputers());
 		return "computers";
 //		return findPaginated(1, model);
 	}
 	
 	@GetMapping("/computers_user")
-	public String listComputersUser(Model model) {
+	public String listComputersUser(@RequestParam String username, Model model) {
+//		String username = (String) model.getAttribute("username");
+		model.addAttribute("username", username);
 		model.addAttribute("computers", computerService.getAllComputers());
 		return "/computers_user";
 //		return findPaginated(1, model);
