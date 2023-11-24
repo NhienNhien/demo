@@ -14,7 +14,8 @@ public interface ShoppingCartService {
 
 	Collection<CartItem> getAllItems();
 
-	void clear();
+//	void clear();
+	void clear(String username);
 
 	CartItem update(int computerId, int soluong);
 

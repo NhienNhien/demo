@@ -90,9 +90,16 @@ public class ShoppingCartController {
 		return "redirect:/shopping-cart/views";
 	}
 	
+//	@GetMapping("clear")
+//	public String clearCart() {
+//		shoppingCartService.clear();
+//		return "redirect:/shopping-cart/views";
+//	}
+	
 	@GetMapping("clear")
 	public String clearCart() {
-		shoppingCartService.clear();
+		String username = userService.getUsername();
+		shoppingCartService.clear(username);
 		return "redirect:/shopping-cart/views";
 	}
 	

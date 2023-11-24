@@ -51,11 +51,11 @@ public class ShoppingCartServiceImpl implements ShoppingCartService{
 		return cartItem;
 	}
 	
-	@Override
-	public void clear() {
-		maps.clear();
-		shoppingCartRepository.deleteAll();
-	}
+//	@Override
+//	public void clear() {
+//		maps.clear();
+//		shoppingCartRepository.deleteAll();
+//	}
 	
 	@Override
 	public Collection<CartItem> getAllItems(){
@@ -87,5 +87,12 @@ public class ShoppingCartServiceImpl implements ShoppingCartService{
 		}
 		// TODO Auto-generated method stub
 		return amount;
+	}
+
+	@Override
+	public void clear(String username) {
+		// TODO Auto-generated method stub
+		List<CartItem> list = shoppingCartRepository.getCartByUsername(username);
+		shoppingCartRepository.deleteAll(list);
 	}
 }
