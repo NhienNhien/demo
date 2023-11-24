@@ -36,7 +36,8 @@ public class ShoppingCartController {
 		model.addAttribute("username", username);
 //		model.addAttribute("CART_ITEMS", shoppingCartService.getAllItems());
 		model.addAttribute("CART_ITEMS", shoppingCartService.getCartByUsername(username));
-		model.addAttribute("TOTAL", shoppingCartService.getAmount());
+//		model.addAttribute("TOTAL", shoppingCartService.getAmount());
+		model.addAttribute("TOTAL", shoppingCartService.getAmount(username));
 		return "cart-item";
 	}
 	

@@ -7,7 +7,8 @@ import com.example.demo.entity.CartItem;
 
 public interface ShoppingCartService {
 
-	float getAmount();
+//	float getAmount();
+	float getAmount(String username);
 
 	int getCount();
 

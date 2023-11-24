@@ -67,14 +67,25 @@ public class ShoppingCartServiceImpl implements ShoppingCartService{
 		return maps.values().size();
 	}
 	
-	@Override
-	public float getAmount() {
-		return (float) maps.values().stream().mapToDouble(item -> item.getSoluong() * item.getGia()).sum();
-	}
+//	@Override
+//	public float getAmount() {
+//		return (float) maps.values().stream().mapToDouble(item -> item.getSoluong() * item.getGia()).sum();
+//	}
 
 	@Override
 	public List<CartItem> getCartByUsername(String username) {
 		// TODO Auto-generated method stub
 		return shoppingCartRepository.getCartByUsername(username);
+	}
+
+	@Override
+	public float getAmount(String username) {
+		List<CartItem> list = shoppingCartRepository.getCartByUsername(username);
+		float amount= 0;
+		for (CartItem cartItem:list) {
+			amount += (cartItem.getSoluong()*cartItem.getGia());
+		}
+		// TODO Auto-generated method stub
+		return amount;
 	}
 }
