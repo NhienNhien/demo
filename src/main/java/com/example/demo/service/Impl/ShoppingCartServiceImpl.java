@@ -71,4 +71,10 @@ public class ShoppingCartServiceImpl implements ShoppingCartService{
 	public float getAmount() {
 		return (float) maps.values().stream().mapToDouble(item -> item.getSoluong() * item.getGia()).sum();
 	}
+
+	@Override
+	public List<CartItem> getCartByUsername(String username) {
+		// TODO Auto-generated method stub
+		return shoppingCartRepository.getCartByUsername(username);
+	}
 }

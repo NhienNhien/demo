@@ -33,24 +33,36 @@ public class CartItem {
 	
 	@Column(name = "soluong")
 	private int soluong = 1;
+	
+
+	@Column(name = "username")
+	private String username;
+	
+
+	
 
 	public CartItem() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	
-
-	public CartItem(int id, Integer computerId, String ten, float gia, int soluong) {
+	public CartItem(int id, Integer computerId, String ten, float gia, int soluong, String username) {
 		super();
 		this.id = id;
 		this.computerId = computerId;
 		this.ten = ten;
 		this.gia = gia;
 		this.soluong = soluong;
+		this.username = username;
 	}
 
+	public String getUsername() {
+		return username;
+	}
 
+	public void setUsername(String username) {
+		this.username = username;
+	}
 
 	public int getId() {
 		return id;
