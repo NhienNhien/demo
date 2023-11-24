@@ -39,7 +39,7 @@ public class ShoppingCartServiceImpl implements ShoppingCartService{
 	
 	@Override
 	public void remove(int id) {
-		maps.remove(id);
+//		maps.remove(id);
 		shoppingCartRepository.deleteById(id);
 	}
 	

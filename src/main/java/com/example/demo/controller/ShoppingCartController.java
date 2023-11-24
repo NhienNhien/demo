@@ -95,6 +95,12 @@ public class ShoppingCartController {
 		return "redirect:/shopping-cart/views";
 	}
 	
+//	@GetMapping("remove/{id}")
+//	public String removeCart(@PathVariable("id") Integer id) {
+//		shoppingCartService.remove(id);
+//		return "redirect:/shopping-cart/views";
+//	}
+	
 	@GetMapping("remove/{id}")
 	public String removeCart(@PathVariable("id") Integer id) {
 		shoppingCartService.remove(id);

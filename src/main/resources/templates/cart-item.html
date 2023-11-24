@@ -10,8 +10,35 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+		integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
 </head>
 <body>
+	<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+		<!-- Brand -->
+		<a class="navbar-brand" href="#">Computer Management System</a>
+
+		<!-- Toggler/collapsibe Button -->
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+
+		<!-- Navbar links -->
+		<div class="collapse navbar-collapse" id="collapsibleNavbar">
+			<ul class="navbar-nav">
+				<li class="nav-item">
+					<a class="nav-link" th:href="@{/computers_user}">Danh sách máy tính</a>
+				</li>
+			</ul>
+		</div>
+		<div class="collapse navbar-collapse" id="collapsibleNavbar">
+			<ul class="navbar-nav">
+				<li class="nav-item">
+					<a class="nav-link" th:href="@{/login}">Đăng xuất</a>
+				</li>
+			</ul>
+		</div>
+	</nav>
 	<h2>Welcome, <span th:text="${username}"></span>!</h2>
 	<div class="container">
 		<h2>Danh sách giỏ hàng</h2>
@@ -55,9 +82,9 @@
 				<span>Tổng tiền: </span>
 				<span th:text="${TOTAL}"></span>
 				<hr />
-				<a class="btn btn-primary btn-sm" href="/shopping-cart/clear">Clear
-					Cart</a> <a class="btn btn-primary btn-sm" href="/computers_user">Add
-					more</a>
+				<a class="btn btn-primary btn-sm" href="/shopping-cart/clear">Xóa</a> 
+				<a class="btn btn-primary btn-sm" href="/computers_user">Mua thêm</a> 
+				<a class="btn btn-primary btn-sm" href="/computers_user">Đặt hàng</a>
 			</div>
 		</div>
 
