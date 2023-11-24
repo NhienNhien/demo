@@ -28,6 +28,7 @@ public class ShoppingCartController {
 	
 	@Autowired
 	UserService userService;
+	
 	@GetMapping("views")
 	public String viewCarts(Model model) {
 		String username = userService.getUsername();
@@ -35,6 +36,15 @@ public class ShoppingCartController {
 		model.addAttribute("CART_ITEMS", shoppingCartService.getAllItems());
 		model.addAttribute("TOTAL", shoppingCartService.getAmount());
 		return "cart-item";
+	}
+	
+	@GetMapping("/computers_user")
+	public String listComputersUser(@RequestParam String username, Model model) {
+//		String username = (String) model.getAttribute("username");
+		model.addAttribute("username", username);
+		model.addAttribute("computers", computerService.getAllComputers());
+		return "/computers_user";
+//		return findPaginated(1, model);
 	}
 	
 	@GetMapping("add/{id}")

@@ -2,6 +2,7 @@ package com.example.demo.controller;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,27 +14,54 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.demo.entity.Computer;
 import com.example.demo.service.ComputerService;
+import com.example.demo.service.UserService;
 
 @Controller
 public class ComputerController {
+	@Autowired
 	private ComputerService computerService;
-
-	public ComputerController(ComputerService computerService) {
+	@Autowired
+	private UserService userService;
+	
+	
+public ComputerController(ComputerService computerService, UserService userService) {
 		super();
 		this.computerService = computerService;
+		this.userService = userService;
 	}
+
+//	@GetMapping("/computers")
+//	public String listComputers(@RequestParam String username, Model model) {
+////		String username = (String) model.getAttribute("username");
+//		model.addAttribute("username", username);
+//		model.addAttribute("computers", computerService.getAllComputers());
+//		return "computers";
+////		return findPaginated(1, model);
+//	}
+	
 	@GetMapping("/computers")
-	public String listComputers(@RequestParam String username, Model model) {
+	public String listComputers(Model model) {
 //		String username = (String) model.getAttribute("username");
+		String username = userService.getUsername();
 		model.addAttribute("username", username);
 		model.addAttribute("computers", computerService.getAllComputers());
 		return "computers";
 //		return findPaginated(1, model);
 	}
 	
+//	@GetMapping("/computers_user")
+//	public String listComputersUser(@RequestParam String username, Model model) {
+////		String username = (String) model.getAttribute("username");
+//		model.addAttribute("username", username);
+//		model.addAttribute("computers", computerService.getAllComputers());
+//		return "/computers_user";
+////		return findPaginated(1, model);
+//	}
+	
 	@GetMapping("/computers_user")
-	public String listComputersUser(@RequestParam String username, Model model) {
+	public String listComputersUser(Model model) {
 //		String username = (String) model.getAttribute("username");
+		String username = userService.getUsername();
 		model.addAttribute("username", username);
 		model.addAttribute("computers", computerService.getAllComputers());
 		return "/computers_user";

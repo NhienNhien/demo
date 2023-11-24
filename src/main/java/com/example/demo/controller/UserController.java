@@ -54,8 +54,29 @@ public class UserController {
 		return "login";
 	}
 	
+//	@PostMapping("/login")
+//	public String login(@ModelAttribute("user") User user, RedirectAttributes redirectAttributes) {
+//		if (userService.checkUserByUsername(user.getUsername()) == false) {
+//			return "redirect:/login?usernameWrong";
+//		}
+//		if (userService.checkUsernamePassword(user.getUsername(), user.getPassword())) {
+//			if (userService.checkAdmin(user.getUsername(), user.getPassword())) {
+//				String username = user.getUsername();
+//				userService.setUsername(username);
+//				redirectAttributes.addAttribute("username", username);
+//				return "redirect:/computers";
+//			}
+//			
+//			String username = user.getUsername();
+//			userService.setUsername(username);
+//			redirectAttributes.addAttribute("username", username);
+//			return "redirect:/computers_user";
+//		}
+//		return "redirect:/login?passwordWrong";
+//	}
+	
 	@PostMapping("/login")
-	public String login(@ModelAttribute("user") User user, RedirectAttributes redirectAttributes) {
+	public String login(@ModelAttribute("user") User user) {
 		if (userService.checkUserByUsername(user.getUsername()) == false) {
 			return "redirect:/login?usernameWrong";
 		}
@@ -63,13 +84,11 @@ public class UserController {
 			if (userService.checkAdmin(user.getUsername(), user.getPassword())) {
 				String username = user.getUsername();
 				userService.setUsername(username);
-				redirectAttributes.addAttribute("username", username);
 				return "redirect:/computers";
 			}
 			
 			String username = user.getUsername();
 			userService.setUsername(username);
-			redirectAttributes.addAttribute("username", username);
 			return "redirect:/computers_user";
 		}
 		return "redirect:/login?passwordWrong";
