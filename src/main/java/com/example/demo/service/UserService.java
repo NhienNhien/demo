@@ -13,4 +13,6 @@ public interface UserService {
 	Boolean checkUserByUsername(String username);
 	Boolean checkAdmin(String username, String password);
 	User getUserByUsername(String username);
+	void setUsername(String username);
+	String getUsername();
 }

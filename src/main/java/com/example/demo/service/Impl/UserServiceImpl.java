@@ -18,6 +18,7 @@ import com.example.demo.service.UserService;
 public class UserServiceImpl implements UserService{
 
 	private UserRepository userRepository;
+	private String username;
 
 
 	public UserServiceImpl(UserRepository userRepository) {
@@ -67,6 +68,21 @@ public class UserServiceImpl implements UserService{
 		if (user.getPassword().equals(password) && user.getRole() ==1 )
 			return true;
 		return false;
+	}
+
+
+	@Override
+	public void setUsername(String username) {
+		// TODO Auto-generated method stub
+		this.username = username;
+		
+	}
+
+
+	@Override
+	public String getUsername() {
+		// TODO Auto-generated method stub
+		return username;
 	}
 
 

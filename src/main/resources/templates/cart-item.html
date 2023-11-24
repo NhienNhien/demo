@@ -12,19 +12,20 @@
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 </head>
 <body>
-
+	<h2>Welcome, <span th:text="${username}"></span>!</h2>
 	<div class="container">
-		<h2>List Products</h2>
+		<h2>Danh sách giỏ hàng</h2>
 		<div class="rows">
 			<div class="col-sm-9">
 				<table class="table table-bordered">
 					<thead>
 						<tr>
 							<th>Id</th>
-							<th>Name</th>
-							<th>Price</th>
-							<th>Quantity</th>
-							<th>Amount</th>
+							<th>ID máy tính</th>
+							<th>Tên máy tính</th>
+							<th>Giá</th>
+							<th>Số lượng</th>
+							<th>Tổng tiền</th>
 							<th></th>
 						</tr>
 					</thead>
@@ -35,6 +36,7 @@
 							<tr th:each="item:${CART_ITEMS}">
 								<form action="/shopping-cart/update" method="post">
 								<input type="hidden" name="id" th:value="${item.computerId}" />
+								<td th:text="${item.id}"></td>
 								<td th:text="${item.computerId}"></td>
 								<td th:text="${item.ten}"></td>
 								<td th:text="${item.gia}"></td>

@@ -62,10 +62,13 @@ public class UserController {
 		if (userService.checkUsernamePassword(user.getUsername(), user.getPassword())) {
 			if (userService.checkAdmin(user.getUsername(), user.getPassword())) {
 				String username = user.getUsername();
+				userService.setUsername(username);
 				redirectAttributes.addAttribute("username", username);
 				return "redirect:/computers";
 			}
+			
 			String username = user.getUsername();
+			userService.setUsername(username);
 			redirectAttributes.addAttribute("username", username);
 			return "redirect:/computers_user";
 		}

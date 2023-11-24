@@ -15,6 +15,7 @@ import com.example.demo.entity.CartItem;
 import com.example.demo.entity.Computer;
 import com.example.demo.service.ComputerService;
 import com.example.demo.service.ShoppingCartService;
+import com.example.demo.service.UserService;
 
 @Controller
 @RequestMapping("/shopping-cart")
@@ -24,8 +25,13 @@ public class ShoppingCartController {
 	
 	@Autowired
 	ShoppingCartService shoppingCartService;
+	
+	@Autowired
+	UserService userService;
 	@GetMapping("views")
 	public String viewCarts(Model model) {
+		String username = userService.getUsername();
+		model.addAttribute("username", username);
 		model.addAttribute("CART_ITEMS", shoppingCartService.getAllItems());
 		model.addAttribute("TOTAL", shoppingCartService.getAmount());
 		return "cart-item";
