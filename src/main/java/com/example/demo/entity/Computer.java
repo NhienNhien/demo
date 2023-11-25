@@ -55,8 +55,8 @@ public class Computer implements Serializable{
 	@Column(name = "anh")
 	private String anh;
 	
-	@OneToMany(mappedBy = "computer")
-	List<OrderDetail> orderDetails;
+//	@OneToMany(mappedBy = "computer")
+//	List<OrderDetail> orderDetails;
 
 	public int getID() {
 		return ID;
@@ -147,13 +147,13 @@ public class Computer implements Serializable{
 		this.anh = anh;
 	}
 
-	public List<OrderDetail> getOrderDetails() {
-		return orderDetails;
-	}
-
-	public void setOrderDetails(List<OrderDetail> orderDetails) {
-		this.orderDetails = orderDetails;
-	}
+//	public List<OrderDetail> getOrderDetails() {
+//		return orderDetails;
+//	}
+//
+//	public void setOrderDetails(List<OrderDetail> orderDetails) {
+//		this.orderDetails = orderDetails;
+//	}
 
 	public Computer(int iD, String ten, String cpu, String ram, String ocung, String manhinh, String hedieuhanh,
 			String hangsanxuat, float dongia, int soluong, String anh) {
@@ -191,42 +191,6 @@ public class Computer implements Serializable{
 		this.anh = anh;
 	}
 
-	public Computer(int iD, String ten, String cpu, String ram, String ocung, String manhinh, String hedieuhanh,
-			String hangsanxuat, float dongia, int soluong, String anh, List<OrderDetail> orderDetails) {
-		super();
-		ID = iD;
-		this.ten = ten;
-		this.cpu = cpu;
-		this.ram = ram;
-		this.ocung = ocung;
-		this.manhinh = manhinh;
-		this.hedieuhanh = hedieuhanh;
-		this.hangsanxuat = hangsanxuat;
-		this.dongia = dongia;
-		this.soluong = soluong;
-		this.anh = anh;
-		this.orderDetails = orderDetails;
-	}
-
-	public Computer(String ten, String cpu, String ram, String ocung, String manhinh, String hedieuhanh,
-			String hangsanxuat, float dongia, int soluong, String anh, List<OrderDetail> orderDetails) {
-		super();
-		this.ten = ten;
-		this.cpu = cpu;
-		this.ram = ram;
-		this.ocung = ocung;
-		this.manhinh = manhinh;
-		this.hedieuhanh = hedieuhanh;
-		this.hangsanxuat = hangsanxuat;
-		this.dongia = dongia;
-		this.soluong = soluong;
-		this.anh = anh;
-		this.orderDetails = orderDetails;
-	}
-
-	
-	
-	
 	
 	
 }

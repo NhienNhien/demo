@@ -23,19 +23,19 @@ public class OrderDetail {
 	@Column(name = "id")
 	private int ID;
 	
+	@Column(name = "computerId")
+	private Integer computerId;
+	
 	@Column(name = "soluong")
 	private int soluong;
 	
 	@Column(name = "gia")
 	private float gia;
 	
-	@ManyToOne
-	@JoinColumn(name = "OrderID")
-	Order order;
+//	@ManyToOne
+//	@JoinColumn(name = "OrderID")
+//	Order order;
 	
-	@ManyToOne
-	@JoinColumn(name = "ComputerID")
-	Computer computer;
 
 	public OrderDetail() {
 		super();
@@ -62,55 +62,29 @@ public class OrderDetail {
 		this.gia = gia;
 	}
 
-	public Order getOrder() {
-		return order;
+	public Integer getComputerId() {
+		return computerId;
 	}
 
-	public void setOrder(Order order) {
-		this.order = order;
+	public void setComputerId(Integer computerId) {
+		this.computerId = computerId;
 	}
 
-	public Computer getComputer() {
-		return computer;
+	public float getGia() {
+		return gia;
 	}
 
-	public void setComputer(Computer computer) {
-		this.computer = computer;
-	}
-	
-	
+//	public OrderDetail(int iD, Integer computerId, int soluong, float gia, Order order) {
+//		super();
+//		ID = iD;
+//		this.computerId = computerId;
+//		this.soluong = soluong;
+//		this.gia = gia;
+//		this.order = order;
+//	}
+//
+//	
 
-	public OrderDetail(int soluong, float gia, Order order, Computer computer) {
-		super();
-		this.soluong = soluong;
-		this.gia = gia;
-		this.order = order;
-		this.computer = computer;
-	}
-
-	public OrderDetail(int iD, int soluong, float gia, Order order, Computer computer) {
-		super();
-		ID = iD;
-		this.soluong = soluong;
-		this.gia = gia;
-		this.order = order;
-		this.computer = computer;
-	}
-
-	public OrderDetail(int iD, int soluong, Order order, Computer computer) {
-		super();
-		ID = iD;
-		this.soluong = soluong;
-		this.order = order;
-		this.computer = computer;
-	}
-
-	public OrderDetail(int soluong, Order order, Computer computer) {
-		super();
-		this.soluong = soluong;
-		this.order = order;
-		this.computer = computer;
-	}
 	
 	
 }

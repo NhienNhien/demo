@@ -1,8 +1,10 @@
 package com.example.demo.entity;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -25,81 +27,78 @@ public class Order {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
-	private int id;
-	
-	@Column(name = "computerId")
-	private Integer computerId;
-	
-	@Column(name = "ten")
-	private String ten;
-	
-	@Column(name = "gia")
-	private float gia;
-	
-	@Column(name = "soluong")
-	private int soluong = 1;
-	
+	private int id;	
 
 	@Column(name = "username")
 	private String username;
 	
+	@Column(name = "diachi")
+	private String diachi;
+	
+	@Column(name = "sdt")
+	private String sdt;
+	
+	@Column(name = "tien")
+	private float tien;
+	
+	@Column(name = "soluong")
+	private int soluong;
+	
+	@Column(name = "computerId")
+	private int computerId;
+	
 	@Column(name = "ngaymua")
-	private Date ngaymua;
+	private LocalDate ngaymua;
+
+//	@OneToMany(cascade = CascadeType.ALL, mappedBy = "order")
+//	private List<OrderDetail> orderDetails;
 
 	public Order() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public Order(int id, Integer computerId, String ten, float gia, int soluong, String username, Date ngaymua) {
-		super();
-		this.id = id;
-		this.computerId = computerId;
-		this.ten = ten;
-		this.gia = gia;
-		this.soluong = soluong;
-		this.username = username;
-		this.ngaymua = ngaymua;
-	}
+	
+
+//	public Order(int id, String username, String diachi, String sdt, float tien, int soluong, int computerId,
+//			LocalDate ngaymua, List<OrderDetail> orderDetails) {
+//		super();
+//		this.id = id;
+//		this.username = username;
+//		this.diachi = diachi;
+//		this.sdt = sdt;
+//		this.tien = tien;
+//		this.soluong = soluong;
+//		this.computerId = computerId;
+//		this.ngaymua = ngaymua;
+//		this.orderDetails = orderDetails;
+//	}
+	
+	
+
+
 
 	public int getId() {
 		return id;
 	}
 
+	public Order(int id, String username, String diachi, String sdt, float tien, int soluong, int computerId,
+		LocalDate ngaymua) {
+	super();
+	this.id = id;
+	this.username = username;
+	this.diachi = diachi;
+	this.sdt = sdt;
+	this.tien = tien;
+	this.soluong = soluong;
+	this.computerId = computerId;
+	this.ngaymua = ngaymua;
+}
+
+
+
 	public void setId(int id) {
 		this.id = id;
-	}
-
-	public Integer getComputerId() {
-		return computerId;
-	}
-
-	public void setComputerId(Integer computerId) {
-		this.computerId = computerId;
-	}
-
-	public String getTen() {
-		return ten;
-	}
-
-	public void setTen(String ten) {
-		this.ten = ten;
-	}
-
-	public float getGia() {
-		return gia;
-	}
-
-	public void setGia(float gia) {
-		this.gia = gia;
-	}
-
-	public int getSoluong() {
-		return soluong;
-	}
-
-	public void setSoluong(int soluong) {
-		this.soluong = soluong;
 	}
 
 	public String getUsername() {
@@ -110,15 +109,61 @@ public class Order {
 		this.username = username;
 	}
 
-	public Date getNgaymua() {
+	public float getTien() {
+		return tien;
+	}
+
+	public void setTien(float tien) {
+		this.tien = tien;
+	}
+
+	public int getSoluong() {
+		return soluong;
+	}
+
+	public void setSoluong(int soluong) {
+		this.soluong = soluong;
+	}
+
+	public int getComputerId() {
+		return computerId;
+	}
+
+	public void setComputerId(int computerId) {
+		this.computerId = computerId;
+	}
+
+	public LocalDate getNgaymua() {
 		return ngaymua;
 	}
 
-	public void setNgaymua(Date ngaymua) {
+	public void setNgaymua(LocalDate ngaymua) {
 		this.ngaymua = ngaymua;
 	}
-	
 
-	
+
+
+	public String getDiachi() {
+		return diachi;
+	}
+
+
+
+	public void setDiachi(String diachi) {
+		this.diachi = diachi;
+	}
+
+
+
+	public String getSdt() {
+		return sdt;
+	}
+
+
+
+	public void setSdt(String sdt) {
+		this.sdt = sdt;
+	}
+
 	
 }
