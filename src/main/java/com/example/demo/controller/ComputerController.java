@@ -68,6 +68,28 @@ public ComputerController(ComputerService computerService, UserService userServi
 //		return findPaginated(1, model);
 	}
 	
+	@GetMapping("/computers/search")
+	public String searchByHangSX(@RequestParam("keyword") String keyword,Model model) {
+//		String username = (String) model.getAttribute("username");
+		String username = userService.getUsername();
+		model.addAttribute("username", username);
+		List<Computer> computers = computerService.searchByHangSanXuat(keyword);
+		model.addAttribute("computers", computers);
+		return "computers";
+//		return findPaginated(1, model);
+	}
+	
+	@GetMapping("/computers_user/search")
+	public String searchByHangSXUser(@RequestParam("keyword") String keyword,Model model) {
+//		String username = (String) model.getAttribute("username");
+		String username = userService.getUsername();
+		model.addAttribute("username", username);
+		List<Computer> computers = computerService.searchByHangSanXuat(keyword);
+		model.addAttribute("computers", computers);
+		return "computers_user";
+//		return findPaginated(1, model);
+	}
+	
 	@GetMapping("/computers/add")
 	public String createComputerForm(Model model) {
 		Computer computer = new Computer();

@@ -51,6 +51,11 @@
 				<a th:href="@{/computers/add}" class="btn btn-primary btn-sm mb-3">Thêm mới máy tính</a>
 			</div>
 		</div>
+		<form th:action="@{/computers/search}" method="get">
+        <input type="text" name="keyword">
+        <button type="submit">Tìm kiếm</button>
+    </form>
+		
 		<table class="table table-striped">
 			<thead>
 				<tr>

@@ -66,4 +66,11 @@ public class ComputerServiceImpl implements ComputerService{
 		return this.computerRepository.findAll(pageable);
 	}
 
+
+	@Override
+	public List<Computer> searchByHangSanXuat(String hangsx) {
+		// TODO Auto-generated method stub
+		return computerRepository.findByHangsanxuat(hangsx);
+	}
+
 }

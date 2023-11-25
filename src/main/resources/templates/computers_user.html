@@ -56,6 +56,10 @@
 			<h1>Danh sách máy tính</h1>
 		</div>
 		<p>Welcome, <span th:text="${username}"></span>!</p>
+		<form th:action="@{/computers_user/search}" method="get">
+        <input type="text" name="keyword" >
+        <button type="submit">Tìm kiếm</button>
+    </form>
 		<table class="table table-striped">
 			<thead>
 				<tr>

@@ -17,4 +17,5 @@ public interface ComputerService {
 	void deleteComputerById(Integer id);
 	
 	Page<Computer> findPaginated(int pageNo, int pageSize);
+	List<Computer> searchByHangSanXuat(String hangsx);
 }
