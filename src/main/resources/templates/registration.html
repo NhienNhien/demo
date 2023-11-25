@@ -19,33 +19,33 @@
 					<form th:action="@{/registration}" th:object="${user}" method="post">
 						
 						<div class="form-group">
-							<label>Địa chỉ </label>
+							<label>Địa chỉ<span style="color: red;">*</span> </label>
 							<input type="text" name="address" th:field="*{address}" class="form-control" placeholder="Nhập địa chỉ" required autofocus/>
 						</div>
 						
 						
 						<div class="form-group">
 							<label>Ngày sinh </label>
-							<input type="text" name="dob" th:field="*{dob}" class="form-control" placeholder="Nhập ngày sinh"/>
+							<input type="date" name="dob" th:field="*{dob}" class="form-control" placeholder="Nhập ngày sinh"/>
 						</div>
 						
 						<div class="form-group">
-							<label>Emai </label>
-							<input type="email" name="email" th:field="*{email}" class="form-control" placeholder="Nhập email"/>
+							<label>Email<span style="color: red;">*</span> </label>
+							<input type="email" name="email" th:field="*{email}" class="form-control" placeholder="Nhập email" required/>
 						</div>
 						
 						<div class="form-group">
-							<label>Họ tên</label>
+							<label>Họ tên<span style="color: red;">*</span></label>
 							<input type="text" name="fullname" th:field="*{fullname}" class="form-control" placeholder="Nhập họ tên" required/>
 						</div>
 						
 						<div class="form-group">	
-							<label>Password</label>
+							<label>Password<span style="color: red;">*</span></label>
 							<input type="password" name="password" th:field="*{password}" class="form-control" placeholder="Nhập password" required reminlength="6" maxlength="20"/>
 						</div>
 						
 						<div class="form-group">	
-							<label>Số điện thoại</label>
+							<label>Số điện thoại<span style="color: red;">*</span></label>
 							<input type="tel" name="phone" th:field="*{phone}" class="form-control" placeholder="Nhập số điện thoại" required pattern="[0-9]{10}"/>
 						</div>
 						
@@ -55,7 +55,7 @@
 						</div>
 						
 						<div class="form-group">	
-							<label>Username</label>
+							<label>Username<span style="color: red;">*</span></label>
 							<input type="text" name="username" th:field="*{username}" class="form-control" placeholder="Nhập username" required/>
 						</div>
 						

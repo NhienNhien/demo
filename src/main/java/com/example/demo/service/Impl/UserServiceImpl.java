@@ -30,6 +30,7 @@ public class UserServiceImpl implements UserService{
 	@Override
 	public User saveUser(User user) {
 		// TODO Auto-generated method stub
+		user.setRole(0);
 		return userRepository.save(user);
 	}
 
